@@ -1,14 +1,15 @@
-# Run with
-# kubectl create -f pod-definition.yml
+# Run with kubectl create -f pod-definition.yml
+# Delete with kubectl delete -f pod-definition.yml
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mypod-app
+  name: nginx
   labels:
-    app: myapp
+    app: nginx
+    tier: frontend
 spec:
   containers:
-    - name: nginx-container
+    - name: nginx
       image: nginx
       resources:
         limits:
