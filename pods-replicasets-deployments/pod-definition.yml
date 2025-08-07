@@ -1,0 +1,19 @@
+# Run with
+# kubectl create -f pod-definition.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod-app
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      resources:
+        limits:
+          memory: 50Mi
+          cpu: "0.2"
+        requests:
+          memory: 10Mi
+          cpu: "0.1"
