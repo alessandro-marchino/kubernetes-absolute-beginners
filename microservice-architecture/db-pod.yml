@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db
+  labels:
+    app: db
+spec:
+  containers:
+  - name: postgres
+    image: postgres:15-alpine
+    resources:
+      limits:
+        memory: 128Mi
+        cpu: 500m
+      requests:
+        memory: 64Mi
+        cpu: 100m
+    env:
+      - name: POSTGRES_USER
+        value: postgres
+      - name: POSTGRES_PASSWORD
+        value: postgres
+    ports:
+      - containerPort: 5432
+        name: postgres
